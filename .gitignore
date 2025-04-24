@@ -30,3 +30,9 @@ Thumbs.db
 # Arquivos ocultos de debug
 *.swp
 *.swo
+
+# Modelos e arquivos de treino pesados
+src/model/random_forest_model.pkl
+src/model/scaler.pkl
+src/model/mse.json
+
