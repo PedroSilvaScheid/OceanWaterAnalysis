@@ -1,0 +1,1 @@
+# Pacote components - contém componentes reutilizáveis da interface gráfica

@@ -1,0 +1,1 @@
+# Pacote utils - contém utilitários da aplicação

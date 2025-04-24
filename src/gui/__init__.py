@@ -1,0 +1,1 @@
+# Pacote gui - contém a interface gráfica da aplicação

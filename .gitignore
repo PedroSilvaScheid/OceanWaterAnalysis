@@ -1,0 +1,32 @@
+# Diretórios de build do PyInstaller
+dist/
+build/
+*.spec
+
+# Cache do Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Ambientes virtuais
+venv/
+.env/
+.env*/ 
+
+# Arquivos temporários de sistema
+.DS_Store
+Thumbs.db
+
+# Logs e saídas
+*.log
+
+# Configs do VS Code
+.vscode/
+
+# Arquivos de testes temporários
+*.tmp
+*.bak
+
+# Arquivos ocultos de debug
+*.swp
+*.swo

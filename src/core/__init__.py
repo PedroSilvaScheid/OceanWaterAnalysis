@@ -1,0 +1,1 @@
+# Pacote core - contém a lógica de negócios da aplicação
