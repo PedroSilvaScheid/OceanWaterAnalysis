@@ -12,3 +12,4 @@ six==1.17.0
 threadpoolctl==3.5.0
 tzdata==2025.1
 pyinstaller==6.5.0
+cryptography==41.0.4

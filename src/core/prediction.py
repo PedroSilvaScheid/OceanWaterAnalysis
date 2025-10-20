@@ -75,7 +75,20 @@ class PredictionModel:
     
     def _load_and_prepare_data(self):
         """Carrega e prepara os dados para treinamento"""
-        data = pd.read_csv(get_csv_path(), delimiter=';')
+        csv_path = get_csv_path()
+        enc_path = csv_path + '.enc'
+        if os.path.exists(enc_path):
+            from utils.crypto import load_key_from_env, decrypt_bytes
+            key = load_key_from_env()
+            if not key:
+                raise RuntimeError('Encrypted CSV found but CSV_ENC_KEY not set in environment')
+            with open(enc_path, 'rb') as f:
+                enc_bytes = f.read()
+            plain = decrypt_bytes(enc_bytes, key)
+            from io import BytesIO
+            data = pd.read_csv(BytesIO(plain), delimiter=';')
+        else:
+            data = pd.read_csv(csv_path, delimiter=';')
         
         # Limpar e converter dados
         data.columns = data.columns.str.strip()

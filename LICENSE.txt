@@ -1,0 +1,32 @@
+LICENCIA PROPRIETARY — WaterAnalyser Research License
+
+Copyright (c) 2025 PedroScheidDev. All rights reserved.
+
+1. Limited Grant
+The licensor grants the licensee a limited, non-exclusive, non-transferable, revocable license to USE the WaterAnalyser software solely for authorized internal research purposes. This license does NOT permit distribution, sublicensing, resale, or transfer.
+
+2. Restrictions
+The licensee shall NOT, under any circumstances:
+- COPY, DISTRIBUTE, UPLOAD, PUBLISH, SELL, RENT, LEASE, OR OTHERWISE REDISTRIBUTE the software or any portion thereof;
+- MODIFY, ADAPT, TRANSLATE, REVERSE ENGINEER, DECOMPILE, DISASSEMBLE, OR CREATE DERIVATIVE WORKS based on the software;
+- REMOVE, ALTER, OR OBSCURE any copyright, patent, trademark, or other proprietary notices;
+- USE the software to develop competing products or for commercial exploitation without a separate written agreement.
+
+3. Ownership
+All title, ownership rights, and intellectual property rights in and to the software and documentation remain exclusively with the licensor. Nothing in this license transfers ownership.
+
+4. Term and Termination
+This license is effective upon receipt of the software and remains in effect until terminated. The licensor may terminate this license immediately upon any breach. Upon termination, the licensee must cease all use and destroy or return all copies of the software.
+
+5. No Warranty
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.
+
+6. Limitation of Liability
+IN NO EVENT SHALL THE LICENSOR BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS OR REVENUE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+7. Governing Law and Jurisdiction
+This License shall be governed by and construed in accordance with the laws of Brazil. Any disputes arising under or in connection with this License shall be subject to the exclusive jurisdiction of the courts located in [City, State/Country].
+
+8. Contact
+For permissions, licensing inquiries, or other questions: pedro.scheid03@gmail.com
+END OF LICENSE

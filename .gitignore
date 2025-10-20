@@ -31,6 +31,9 @@ Thumbs.db
 *.swp
 *.swo
 
+# Banco de dados
+*.db
+
 # Modelos e arquivos de treino pesados
 src/model/random_forest_model.pkl
 src/model/scaler.pkl

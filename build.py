@@ -57,11 +57,57 @@ def create_windows_installer():
     
     print("Criando instalador Windows...")
     try:
-        makensis = r'"C:\Program Files (x86)\NSIS\makensis.exe"'
-        subprocess.run(f'{makensis} packaging/windows/installer.nsi', shell=True, check=True)
+        # Find makensis in PATH first, otherwise fall back to the common Program Files path
+        makensis_path = shutil.which('makensis') or shutil.which('makensisw')
+        if not makensis_path:
+            possible = r"C:\Program Files (x86)\NSIS\makensis.exe"
+            if os.path.exists(possible):
+                makensis_path = possible
+
+        if not makensis_path:
+            raise FileNotFoundError('makensis not found in PATH and default location not found')
+
+        # Ensure dist directory exists and remove any previous installer to avoid "Can't open output file"
+        dist_dir = os.path.abspath('dist')
+        os.makedirs(dist_dir, exist_ok=True)
+        out_installer = os.path.join(dist_dir, f"WaterAnalyser_Setup_1.0.0.exe")
+        if os.path.exists(out_installer):
+            try:
+                os.remove(out_installer)
+            except PermissionError:
+                print(f"Warning: cannot remove existing installer {out_installer} (maybe locked).")
+
+        # Create a temporary installer script that uses an absolute OutFile path to
+        # avoid issues where makensis resolves the OutFile relative to a different cwd
+        original_nsi = os.path.abspath(os.path.join('packaging', 'windows', 'installer.nsi'))
+        tmp_nsi = os.path.abspath(os.path.join('packaging', 'windows', 'installer_tmp.nsi'))
+        try:
+            with open(original_nsi, 'r', encoding='utf-8') as fin:
+                nsi_contents = fin.read()
+
+            # Replace the OutFile line (simple heuristic)
+            abs_outfile = os.path.abspath(out_installer).replace('\\', '\\\\')
+            import re
+            if re.search(r'OutFile\s+"', nsi_contents):
+                nsi_contents = re.sub(r'OutFile\s+".*?"', f'OutFile "{abs_outfile}"', nsi_contents, count=1)
+            else:
+                # If no OutFile present, prepend an OutFile directive
+                nsi_contents = f'OutFile "{abs_outfile}"\n' + nsi_contents
+
+            with open(tmp_nsi, 'w', encoding='utf-8') as fout:
+                fout.write(nsi_contents)
+
+            # Run makensis against the temporary script
+            subprocess.run([makensis_path, tmp_nsi], check=True, cwd=os.getcwd())
+        finally:
+            try:
+                if os.path.exists(tmp_nsi):
+                    os.remove(tmp_nsi)
+            except Exception:
+                pass
         print("Instalador Windows criado com sucesso!")
     except (subprocess.SubprocessError, FileNotFoundError):
-        print("Erro ao criar instalador Windows. Verifique se o NSIS está instalado.")
+        print("Erro ao criar instalador Windows. Verifique se o NSIS está instalado e se o arquivo de saída não está em uso.")
 
 def create_macos_package():
     """Cria pacote DMG para macOS."""

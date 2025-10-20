@@ -47,6 +47,7 @@ class HistorySection(QFrame):
         
         self.historico_layout = QVBoxLayout(self.historico_container)
         self.historico_layout.setSpacing(10)
+        self.historico_layout.setAlignment(Qt.AlignTop)
         
         layout.addWidget(self.historico_scroll)
     
